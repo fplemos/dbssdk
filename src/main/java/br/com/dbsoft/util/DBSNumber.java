@@ -1288,7 +1288,12 @@ public class DBSNumber {
 		if (pDecimalPlaces==null){
 			pDecimalPlaces = 0;
 		}
-		xValue = toBigDecimal(pValue).setScale(pDecimalPlaces, RoundingMode.FLOOR);
+		
+		if (toInteger(pValue) > 0 ){
+			xValue = toBigDecimal(pValue).setScale(pDecimalPlaces, RoundingMode.FLOOR);
+		}else{
+			xValue = toBigDecimal(pValue).setScale(pDecimalPlaces, RoundingMode.HALF_UP);
+		}
 		xValue = toBigDecimal(xValue);
 		return pvConvertToClass(xValue, pClass);
 	}
