@@ -1288,7 +1288,6 @@ public class DBSNumber {
 		if (pDecimalPlaces==null){
 			pDecimalPlaces = 0;
 		}
-		
 		if (toInteger(pValue) > 0 ){
 			xValue = toBigDecimal(pValue).setScale(pDecimalPlaces, RoundingMode.FLOOR);
 		}else{
